@@ -1,6 +1,7 @@
 package racingcar.entity;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class PlayResult {
     private final Integer id;
@@ -29,5 +30,18 @@ public class PlayResult {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PlayResult that = (PlayResult) o;
+        return Objects.equals(id, that.id) && Objects.equals(count, that.count) && Objects.equals(winners, that.winners) && Objects.equals(createdAt, that.createdAt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, count, winners, createdAt);
     }
 }
