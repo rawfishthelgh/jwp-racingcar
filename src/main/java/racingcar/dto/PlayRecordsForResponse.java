@@ -18,4 +18,12 @@ public class PlayRecordsForResponse {
     public List<CarForSave> getRacingCars() {
         return racingCars;
     }
+
+    @Override
+    public String toString() {
+        return "PlayRecordsForResponse{" +
+                "winners='" + winners + '\'' +
+                ", racingCars=" + racingCars +
+                '}';
+    }
 }
