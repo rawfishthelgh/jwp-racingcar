@@ -1,32 +1,17 @@
 package racingcar.controller;
 
 import io.restassured.RestAssured;
-import io.restassured.common.mapper.TypeRef;
-import io.restassured.response.ExtractableResponse;
-import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
-import org.assertj.core.api.Assertions;
-import org.hamcrest.core.Is;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import racingcar.dto.GameInfoForRequest;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
-import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.Is.is;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class RacingCarWebControllerTest {
@@ -44,7 +29,6 @@ class RacingCarWebControllerTest {
         @Test
         void createCarsAndGameRecords() {
             GameInfoForRequest gameInfoForRequest = new GameInfoForRequest("마드,푸우", 10);
-            GameInfoForRequest newGameInfoForRequest = new GameInfoForRequest("마드,푸우", 10);
 
             given()
                     .log().all()
